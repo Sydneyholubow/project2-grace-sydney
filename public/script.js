@@ -34,19 +34,31 @@ const eventList = firebase.database().ref(); //<--CLOUDSHELL
 
 let newHTML = "";
 
-messagesRef.on('value', (snapshot) => {
+// eventList.on('value', (snapshot) => {
+//         const data = snapshot.val()
+//         console.log(data)
+//         for (let key in data) {
+//             console.log(key, data[key])
+//                 const location = document.querySelector("#location");
+//                             console.log(data[key].location);
+//                 const event = document.querySelector("#event");
+//                             console.log(data[key].event);
+//                 const time = document.querySelector("#time");
+//                             console.log(data[key].time);
+//                 const notes = document.querySelector("#notes");
+//                 message.innerHTML = data[key].notes;
+            
+//         }
+//     })
+
+    eventList.on('value', (snapshot) => {
         const data = snapshot.val()
         console.log(data)
         for (let key in data) {
             console.log(key, data[key])
-            if (data[key].passcode === code) {
-                console.log(data[key].message);
-                const message = document.querySelector("#message");
-                message.innerHTML = data[key].message;
-            }
+            newHTML += addEvent(key.name, key.time, key.location, key.description);
         }
     })
-
     
 //eventList.forEach(event => {
   //newHTML += addEvent(event.name, event.time, event.location, event.description);
@@ -56,10 +68,10 @@ document.querySelector("#eventList").innerHTML = newHTML
 
 submit.addEventListener("click", () => {
   //create new event object and add to database
-  const eventName = document.querySelector("#addName")
+  const eventName = document.querySelector("#addEvent")
   const eventTime = document.querySelector("#addTime")
   const eventLocation = document.querySelector("#addLocation")
-  const eventDescription = document.querySelector("#addDescription")
+  const eventDescription = document.querySelector("#addNotes")
   
   const newEvent = {
     name: eventName.value,
