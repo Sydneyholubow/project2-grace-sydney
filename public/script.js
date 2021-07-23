@@ -34,10 +34,25 @@ const eventList = firebase.database().ref(); //<--CLOUDSHELL
 
 let newHTML = "";
 
-eventList.forEach(event => {
-  newHTML += addEvent(event.name, event.time, event.location, event.description);
-})
-document.querySelector("#eventsList").innerHTML = newHTML
+messagesRef.on('value', (snapshot) => {
+        const data = snapshot.val()
+        console.log(data)
+        for (let key in data) {
+            console.log(key, data[key])
+            if (data[key].passcode === code) {
+                console.log(data[key].message);
+                const message = document.querySelector("#message");
+                message.innerHTML = data[key].message;
+            }
+        }
+    })
+
+    
+//eventList.forEach(event => {
+  //newHTML += addEvent(event.name, event.time, event.location, event.description);
+//})
+const messagesRef = firebase.database().ref();
+document.querySelector("#eventList").innerHTML = newHTML
 
 submit.addEventListener("click", () => {
   //create new event object and add to database
