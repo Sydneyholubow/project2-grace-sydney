@@ -1,0 +1,56 @@
+.hidden {
+  display: none;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.tile {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outer-padding, .hero-body {
+  background-color: #C2E1D8
+}
+
+
+.intro-text, .eventsList {
+  background-color: #67CAE5; 
+  padding: 4%;
+  margin: 3%;
+  color: #ffffff;
+  font-size: 20px; 
+  letter-spacing: 2px; 
+  line-height: 1.4em; 
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-body, .end-footer{
+  background-color: #CEFEEF;
+  padding: 20px 45px;
+  margin: 35px;
+  text-align: center;
+}
+
+
+/* Internal Pages CSS Design */
+
+h1, .title {
+  letter-spacing: 5px;
+  font-size: 70px;
+  font-family: 'Amatic SC', cursive;
+  color: #9480E0;
+  text-align: center;
+ }
+
+body,
+.container {
+  font-size: 20px; 
+  font-family: 'Josefin Sans', sans-serif;
+  color: #67CAE5;
+  background-color: white;
+ }  
+
